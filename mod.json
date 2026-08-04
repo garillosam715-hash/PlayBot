@@ -1,0 +1,102 @@
+{
+    "geode": "5.7.1",
+    "gd": {
+        "win": "2.2081",
+        "android": "2.2081",
+        "mac": "2.2081",
+        "ios": "2.2081"
+    },
+    "version": "v5.7.1",
+    "id": "com.playbotdev.playbot",
+    "name": "PlayBot",
+    "developer": "PlayBotDev",
+    "description": "A fully modded practice/showcase toolkit for Geometry Dash — noclip, speedhack, click-between-frames, trajectory & hitbox render for showcases, auto-save checkpoints, and more. Built with Geode.",
+    "repository": "https://github.com/playbotdev/playbot",
+    "tags": ["utility", "practice", "enhancement", "interface"],
+    "early-load": true,
+    "resources": {
+        "sprites": [
+            "resources/*.png"
+        ]
+    },
+    "settings": {
+        "noclip": {
+            "name": "NoClip",
+            "description": "Pass through hazards and blocks without dying. Practice tool only.",
+            "type": "bool",
+            "default": false
+        },
+        "noclip-accuracy": {
+            "name": "NoClip Accuracy Threshold",
+            "description": "Percentage of the frame the player must clear the hazard by to count as a 'legit' hit for accuracy stats.",
+            "type": "float",
+            "default": 0.5,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "speedhack": {
+            "name": "Enable Speedhack",
+            "description": "Allows changing the game's playback speed via keybind.",
+            "type": "bool",
+            "default": false
+        },
+        "speedhack-multiplier": {
+            "name": "Speedhack Multiplier",
+            "description": "Playback speed multiplier applied when speedhack is toggled on.",
+            "type": "float",
+            "default": 0.5,
+            "min": 0.1,
+            "max": 4.0
+        },
+        "click-between-frames": {
+            "name": "Click Between Frames",
+            "description": "Sub-frame input precision for frame-perfect clicks (TAS-style precision). Note: GD 2.208 added an official native 'Click on Steps' option in the game's own settings — this is this mod's independent implementation, kept for parity on older saves/servers that expect classic CBF timing.",
+            "type": "bool",
+            "default": false
+        },
+        "auto-save": {
+            "name": "Auto Save Checkpoints",
+            "description": "Automatically saves a practice checkpoint on an interval while in practice mode.",
+            "type": "bool",
+            "default": true
+        },
+        "auto-save-interval": {
+            "name": "Auto Save Interval (seconds)",
+            "description": "How often to automatically drop a practice checkpoint.",
+            "type": "int",
+            "default": 15,
+            "min": 3,
+            "max": 120
+        },
+        "render-trajectory": {
+            "name": "Showcase Trajectory Render",
+            "description": "Draws the player's motion trail/trajectory for showcase recording.",
+            "type": "bool",
+            "default": false
+        },
+        "render-hitboxes": {
+            "name": "Showcase Hitbox Render",
+            "description": "Draws player and hazard hitboxes for showcase/verification recording.",
+            "type": "bool",
+            "default": false
+        },
+        "trail-color": {
+            "name": "Trajectory Trail Color",
+            "description": "Color of the showcase trajectory trail.",
+            "type": "rgba",
+            "default": "0x00e5ffff"
+        },
+        "hitbox-color": {
+            "name": "Hitbox Outline Color",
+            "description": "Color of the showcase hitbox outlines.",
+            "type": "rgba",
+            "default": "0xff2d55ff"
+        },
+        "menu-keybind": {
+            "name": "Open PlayBot Menu",
+            "type": "bool",
+            "default": true,
+            "description": "Adds a PlayBot button to the PlayLayer pause menu."
+        }
+    }
+}
