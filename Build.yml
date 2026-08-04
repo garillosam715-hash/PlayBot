@@ -1,0 +1,40 @@
+name: Build PlayBot
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - name: Windows
+            os: windows-latest
+            target: win
+          - name: macOS
+            os: macos-latest
+            target: mac
+          - name: Android64
+            os: ubuntu-latest
+            target: android64
+          - name: Android32 (armeabi-v7a)
+            os: ubuntu-latest
+            target: android32
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Geode CLI
+        uses: geode-sdk/geode-cli-action@main
+
+      - name: Build mod
+        run: geode build -p ${{ matrix.target }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PlayBot-${{ matrix.target }}
+          path: build*/**/*.geode
